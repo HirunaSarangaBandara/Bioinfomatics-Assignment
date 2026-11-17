@@ -96,18 +96,55 @@ Sequences containing ambiguous nucleotide codes were retained because these char
 
 The processed sequences will be used for exploratory data analysis and subsequent sequence comparison.
 
-## 8. Expected Outcomes
+## 8. Exploratory Data Analysis
 
-The project is expected to produce:
+Exploratory Data Analysis (EDA) was conducted to examine the characteristics of the four selected bacterial 16S rRNA sequences.
 
-- A cleaned collection of selected bacterial 16S rRNA sequences.
-- Descriptive statistics on sequence length and nucleotide composition.
-- GC content comparisons.
-- Sequence alignment and similarity results.
-- A phylogenetic tree showing the relationships indicated by the selected sequences.
-- Visualizations and interpretations of the analytical findings.
+The analysis was performed using R, with the ggplot2 package used to produce graphical representations of the results.
 
-These are expected outputs, not predetermined research findings.
+### 8.1 Sequence Length Analysis
+
+The length of each DNA sequence was calculated in base pairs. A bar chart was generated to compare the sequence lengths of the selected bacterial records.
+
+This analysis provides an initial understanding of the differences in sequence coverage among the collected records.
+
+### 8.2 Nucleotide Composition Analysis
+
+The numbers of adenine (A), thymine (T), guanine (G) and cytosine (C) nucleotides were calculated for each sequence.
+
+The nucleotide counts were converted into percentages based on the total number of unambiguous nucleotides (A, T, G and C).
+
+A stacked bar chart was created to compare the nucleotide composition of the selected records.
+
+### 8.3 GC Content Analysis
+
+GC content was calculated using the following formula:
+
+GC Content (%) = ((G + C) / (A + T + G + C)) × 100
+
+The calculated percentages were presented using a comparative bar chart.
+
+Ambiguous nucleotide characters were excluded from the GC content denominator to avoid treating unknown nucleotide identities as G, C, A or T.
+
+### 8.4 Visualization and Export
+
+Three visualizations were generated:
+
+1. 16S rRNA sequence length comparison.
+2. GC content comparison.
+3. Nucleotide composition comparison.
+
+Two summary tables were also generated and exported as CSV files in the results/tables directory.
+
+### 8.5 Interpretation and Limitations
+
+The EDA results provide an overview of sequence length, nucleotide composition and GC content among the selected bacterial records.
+
+The sequence length comparisons must be interpreted carefully because the selected NCBI records have different levels of sequence completeness.
+
+Furthermore, only one representative sequence was selected for each bacterial species. Therefore, the descriptive comparisons cannot establish the full range of genetic variation within each species.
+
+The actual numerical observations and their biological interpretations will be discussed based on the generated tables and figures.
 
 ## 9. Scope and Limitations
 
