@@ -36,13 +36,43 @@ To investigate the genetic similarities and differences among selected lactic ac
 4. Compare the similarities and differences among the selected sequences.
 5. Construct and interpret a phylogenetic tree to explore their evolutionary relationships.
 
-## 6. Dataset Plan
+## 6. Dataset and Data Source
 
-The project plans to use publicly available 16S rRNA gene sequences from NCBI GenBank.
+The dataset for this research consists of publicly available 16S rRNA gene sequences obtained from the NCBI GenBank database.
 
-The selected bacterial species, accession numbers, sequence lengths and data retrieval details will be documented after examining the available records.
+Four bacterial species were selected for comparative sequence analysis. The selected records represent different lactic acid bacterial groups and have identifiable accession numbers.
 
-The dataset will be selected based on sequence availability, suitability for comparison and completeness of the relevant sequence records.
+| Organism | Strain | Accession Number |
+|---|---|---|
+| Lactiplantibacillus plantarum | CIP 103151 | NR_104573.1 |
+| Lactobacillus acidophilus | NBRC 13951 | AB680529.1 |
+| Limosilactobacillus reuteri | DSM 20016 | X76328.1 |
+| Streptococcus thermophilus | ATCC 19258 | AY188354.1 |
+
+### Data Collection Method
+
+The nucleotide records were retrieved from NCBI using the Entrez programming interface through the `rentrez` R package.
+
+The sequences were imported using the `Biostrings` package and stored in FASTA format.
+
+A separate CSV file was generated to document the organism names, strain information, accession numbers and sequence lengths.
+
+### Dataset Source
+
+NCBI Nucleotide Database: https://www.ncbi.nlm.nih.gov/nuccore/
+
+Individual sequence records:
+
+1. https://www.ncbi.nlm.nih.gov/nuccore/NR_104573.1
+2. https://www.ncbi.nlm.nih.gov/nuccore/AB680529.1
+3. https://www.ncbi.nlm.nih.gov/nuccore/X76328.1
+4. https://www.ncbi.nlm.nih.gov/nuccore/AY188354.1
+
+### Dataset Limitations
+
+The dataset contains one representative sequence for each selected bacterial species. The selected records also differ in their reported sequence completeness.
+
+Therefore, comparisons will be interpreted at the level of the available sequence records, and the study will not make population-level conclusions about the bacterial species.
 
 ## 7. Planned Methodology
 
