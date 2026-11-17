@@ -146,11 +146,73 @@ Furthermore, only one representative sequence was selected for each bacterial sp
 
 The actual numerical observations and their biological interpretations will be discussed based on the generated tables and figures.
 
-## 9. Scope and Limitations
+### 8.6 Actual EDA Findings
 
-This study will focus on a selected group of lactic acid bacteria and their publicly available 16S rRNA gene sequences. It will not examine complete bacterial genomes or experimental laboratory samples.
+The exploratory analysis was successfully completed using four selected bacterial 16S rRNA sequences.
 
-The findings will depend on the quality, availability and comparability of the selected sequence records. In addition, 16S rRNA sequence analysis may not distinguish every closely related bacterial species with certainty.
+The sequence lengths were 1,527 bp for *Lactiplantibacillus plantarum*, 1,489 bp for *Lactobacillus acidophilus*, 1,571 bp for *Limosilactobacillus reuteri* and 1,539 bp for *Streptococcus thermophilus*. The average sequence length was 1,531.5 bp.
+
+The GC content results were 51.41%, 53.73%, 53.96% and 52.76%, respectively. Among the selected records, *L. reuteri* showed the highest GC content, while *L. plantarum* showed the lowest.
+
+The *L. reuteri* record contained five ambiguous nucleotide characters. These were excluded from the GC content calculation.
+
+Overall, the selected sequences showed differences in their nucleotide composition and sequence lengths. However, these observations describe the selected database records and should not be interpreted as population-level differences among bacterial species.
+
+## 9. Main Bioinformatics Analysis
+
+The main sequence analysis was performed using the DECIPHER and ape packages in R.
+
+### 9.1 Multiple Sequence Alignment
+
+Multiple sequence alignment was performed using the AlignSeqs() function from the DECIPHER package.
+
+The four selected 16S rRNA sequences were aligned to identify corresponding nucleotide positions and prepare the data for comparative analysis.
+
+The resulting alignment was saved in FASTA format.
+
+### 9.2 Conserved and Variable Site Analysis
+
+The aligned sequences were examined to identify conserved and variable nucleotide positions.
+
+A conserved position was defined as an alignment column in which all four sequences contained the same unambiguous nucleotide.
+
+A variable position was defined as an alignment column containing at least two different unambiguous nucleotides.
+
+Positions containing gaps or ambiguous nucleotide characters were excluded from these two site categories and reported separately.
+
+### 9.3 Pairwise Sequence Similarity
+
+Pairwise sequence comparisons were performed for all possible combinations of the four bacterial sequences.
+
+Percentage sequence identity was calculated from matching nucleotide positions divided by the total number of comparable positions.
+
+Gaps and ambiguous nucleotide characters were excluded from the comparison.
+
+The results were saved in a CSV file and visualized using a comparative bar chart.
+
+### 9.4 Genetic Distance Analysis
+
+An uncorrected p-distance matrix was calculated using the proportion of different nucleotides among comparable aligned positions.
+
+The distance matrix represents the sequence differences between each pair of selected bacterial records.
+
+### 9.5 Phylogenetic Analysis
+
+A Neighbor-Joining phylogenetic tree was constructed using the calculated genetic distance matrix and the ape package.
+
+The resulting tree represents relationships inferred from the selected 16S rRNA sequence data.
+
+The tree and its Newick representation were exported for further inspection.
+
+### 9.6 Limitations
+
+The analysis is based on four selected sequence records, with one representative sequence per bacterial species.
+
+Some selected records are described by NCBI as partial sequences. Differences in sequence coverage and alignment positions can therefore influence the comparison results.
+
+Only positions containing unambiguous A, T, G and C nucleotides in both sequences were used in pairwise comparisons.
+
+The Neighbor-Joining tree is an exploratory representation based on the selected gene sequences. It should not be interpreted as a definitive evolutionary history of the bacterial species.
 
 ## 10. Reproducibility
 
