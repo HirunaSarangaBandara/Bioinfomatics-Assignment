@@ -1,0 +1,5 @@
+"organism","strain","accession","record_type","ncbi_url","sequence_length_bp","fasta_header","ambiguous_nucleotide_count","qc_status"
+"Lactiplantibacillus plantarum","CIP 103151","NR_104573.1","Partial 16S rRNA (RefSeq)","https://www.ncbi.nlm.nih.gov/nuccore/NR_104573.1",1527,"NR_104573.1 Lactiplantibacillus plantarum strain CIP 103151 16S ribosomal RNA, partial sequence",0,"Pass"
+"Lactobacillus acidophilus","NBRC 13951","AB680529.1","Partial 16S rRNA","https://www.ncbi.nlm.nih.gov/nuccore/AB680529.1",1489,"AB680529.1 Lactobacillus acidophilus gene for 16S rRNA, partial sequence, strain: NBRC 13951",0,"Pass"
+"Limosilactobacillus reuteri","DSM 20016","X76328.1","16S rRNA gene","https://www.ncbi.nlm.nih.gov/nuccore/X76328.1",1571,"X76328.1 L.reuteri (DSM 20016 T) 16S rRNA gene. (i)",5,"Ambiguous nucleotide codes present"
+"Streptococcus thermophilus","ATCC 19258","AY188354.1","Complete 16S rRNA","https://www.ncbi.nlm.nih.gov/nuccore/AY188354.1",1539,"AY188354.1 Streptococcus thermophilus strain ATCC 19258 16S ribosomal RNA gene, complete sequence",0,"Pass"

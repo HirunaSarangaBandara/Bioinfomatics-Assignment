@@ -74,19 +74,27 @@ The dataset contains one representative sequence for each selected bacterial spe
 
 Therefore, comparisons will be interpreted at the level of the available sequence records, and the study will not make population-level conclusions about the bacterial species.
 
-## 7. Planned Methodology
+## 7. Data Cleaning and Preprocessing
 
-The project will follow these main stages:
+The downloaded 16S rRNA sequences were imported into R using the Biostrings package. Before performing the main analysis, a preprocessing stage was implemented to examine the structure and quality of the collected sequences.
 
-- Data collection and sequence import.
-- Sequence quality checking and preprocessing.
-- Exploratory data analysis.
-- Nucleotide composition and GC content calculation.
-- Sequence alignment and similarity analysis.
-- Phylogenetic analysis and interpretation.
-- Visualization and reporting of results.
+The FASTA records were matched with their corresponding accession numbers in the metadata table. The sequences were then standardized using uppercase nucleotide characters and consistent sequence headers.
 
-Suitable R and Bioconductor packages will be selected according to the final dataset and analytical requirements.
+The following quality-control checks were performed:
+
+1. **Sequence validation:** Checked whether the FASTA records could be successfully imported and matched with the corresponding metadata.
+2. **Sequence length checking:** Calculated the length of each sequence in base pairs.
+3. **Nucleotide ambiguity checking:** Identified ambiguous nucleotide codes such as N, R and Y.
+4. **Duplicate detection:** Checked whether any sequences were completely identical.
+5. **Sequence standardization:** Standardized sequence formatting and naming.
+
+The original raw sequences were preserved, while the standardized sequences were exported into a separate processed-data directory.
+
+A quality-control summary and an updated metadata file were also generated in CSV format.
+
+Sequences containing ambiguous nucleotide codes were retained because these characters can represent valid IUPAC nucleotide ambiguity codes. No records were automatically removed during this preprocessing stage.
+
+The processed sequences will be used for exploratory data analysis and subsequent sequence comparison.
 
 ## 8. Expected Outcomes
 

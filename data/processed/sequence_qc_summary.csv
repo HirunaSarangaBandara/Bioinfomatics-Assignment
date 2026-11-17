@@ -1,0 +1,5 @@
+"organism","strain","accession","original_sequence_length","ambiguous_nucleotide_count","ambiguous_symbols","unexpected_symbols","exact_duplicate","qc_status"
+"Lactiplantibacillus plantarum","CIP 103151","NR_104573.1",1527,0,"None","None",FALSE,"Pass"
+"Lactobacillus acidophilus","NBRC 13951","AB680529.1",1489,0,"None","None",FALSE,"Pass"
+"Limosilactobacillus reuteri","DSM 20016","X76328.1",1571,5,"N","None",FALSE,"Ambiguous nucleotide codes present"
+"Streptococcus thermophilus","ATCC 19258","AY188354.1",1539,0,"None","None",FALSE,"Pass"

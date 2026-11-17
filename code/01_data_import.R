@@ -1,8 +1,4 @@
 # ============================================================
-# BIOINFORMATICS ICA3
-# Project: Comparative 16S rRNA Sequence Analysis
-# Registration Number: 2021/ICT/81
-#
 # Script: Download and Import DNA Sequences
 # Data source: NCBI GenBank
 # ============================================================
