@@ -1,0 +1,4 @@
+"split","distance_sum"
+"(plantarum, acidophilus) | (reuteri, thermophilus)",0.27029
+"(plantarum, reuteri) | (acidophilus, thermophilus)",0.255546
+"(plantarum, thermophilus) | (acidophilus, reuteri)",0.249166

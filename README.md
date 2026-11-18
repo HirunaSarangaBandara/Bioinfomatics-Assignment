@@ -1,225 +1,179 @@
 # Comparative 16S rRNA Sequence Analysis of Selected Lactic Acid Bacteria
 
-**Student Registration Number:** 2021/ICT/81
-
-**Project Type:** Bioinformatics – ICA3
-
-**Programming Language:** R
-
-## 1. Project Overview
-
-This project aims to investigate the sequence similarities and differences among selected lactic acid bacteria using publicly available 16S ribosomal RNA (16S rRNA) gene sequences. The analysis will be conducted using the R programming language and appropriate bioinformatics packages.
-
-The project will examine nucleotide composition, sequence length, GC content, sequence similarity and evolutionary relationships among the selected bacterial species.
-
-## 2. Problem Identification
-
-Bacterial species can share similar genetic sequences while also containing nucleotide variations that help distinguish them. The 16S rRNA gene is commonly used in bacterial identification and comparative sequence analysis because it contains both conserved and variable regions.
-
-However, understanding the genetic similarities and differences among selected bacterial species requires appropriate sequence processing, comparison and interpretation.
-
-This project will address this problem by applying bioinformatics techniques to publicly available 16S rRNA sequences from selected lactic acid bacteria.
-
-## 3. Research Question
-
-What similarities and differences can be identified among the 16S rRNA gene sequences of selected lactic acid bacteria through nucleotide composition analysis, sequence comparison and phylogenetic analysis?
-
-## 4. Research Aim
-
-To investigate the genetic similarities and differences among selected lactic acid bacteria using comparative 16S rRNA sequence analysis in R.
-
-## 5. Research Objectives
-
-1. Obtain publicly available 16S rRNA gene sequences of selected lactic acid bacteria.
-2. Import and preprocess the collected DNA sequences using R.
-3. Analyze sequence length, nucleotide composition and GC content.
-4. Compare the similarities and differences among the selected sequences.
-5. Construct and interpret a phylogenetic tree to explore their evolutionary relationships.
-
-## 6. Dataset and Data Source
-
-The dataset for this research consists of publicly available 16S rRNA gene sequences obtained from the NCBI GenBank database.
-
-Four bacterial species were selected for comparative sequence analysis. The selected records represent different lactic acid bacterial groups and have identifiable accession numbers.
-
-| Organism | Strain | Accession Number |
-|---|---|---|
-| Lactiplantibacillus plantarum | CIP 103151 | NR_104573.1 |
-| Lactobacillus acidophilus | NBRC 13951 | AB680529.1 |
-| Limosilactobacillus reuteri | DSM 20016 | X76328.1 |
-| Streptococcus thermophilus | ATCC 19258 | AY188354.1 |
-
-### Data Collection Method
-
-The nucleotide records were retrieved from NCBI using the Entrez programming interface through the `rentrez` R package.
-
-The sequences were imported using the `Biostrings` package and stored in FASTA format.
-
-A separate CSV file was generated to document the organism names, strain information, accession numbers and sequence lengths.
-
-### Dataset Source
-
-NCBI Nucleotide Database: https://www.ncbi.nlm.nih.gov/nuccore/
-
-Individual sequence records:
-
-1. https://www.ncbi.nlm.nih.gov/nuccore/NR_104573.1
-2. https://www.ncbi.nlm.nih.gov/nuccore/AB680529.1
-3. https://www.ncbi.nlm.nih.gov/nuccore/X76328.1
-4. https://www.ncbi.nlm.nih.gov/nuccore/AY188354.1
-
-### Dataset Limitations
-
-The dataset contains one representative sequence for each selected bacterial species. The selected records also differ in their reported sequence completeness.
-
-Therefore, comparisons will be interpreted at the level of the available sequence records, and the study will not make population-level conclusions about the bacterial species.
-
-## 7. Data Cleaning and Preprocessing
-
-The downloaded 16S rRNA sequences were imported into R using the Biostrings package. Before performing the main analysis, a preprocessing stage was implemented to examine the structure and quality of the collected sequences.
-
-The FASTA records were matched with their corresponding accession numbers in the metadata table. The sequences were then standardized using uppercase nucleotide characters and consistent sequence headers.
-
-The following quality-control checks were performed:
-
-1. **Sequence validation:** Checked whether the FASTA records could be successfully imported and matched with the corresponding metadata.
-2. **Sequence length checking:** Calculated the length of each sequence in base pairs.
-3. **Nucleotide ambiguity checking:** Identified ambiguous nucleotide codes such as N, R and Y.
-4. **Duplicate detection:** Checked whether any sequences were completely identical.
-5. **Sequence standardization:** Standardized sequence formatting and naming.
-
-The original raw sequences were preserved, while the standardized sequences were exported into a separate processed-data directory.
-
-A quality-control summary and an updated metadata file were also generated in CSV format.
-
-Sequences containing ambiguous nucleotide codes were retained because these characters can represent valid IUPAC nucleotide ambiguity codes. No records were automatically removed during this preprocessing stage.
-
-The processed sequences will be used for exploratory data analysis and subsequent sequence comparison.
-
-## 8. Exploratory Data Analysis
-
-Exploratory Data Analysis (EDA) was conducted to examine the characteristics of the four selected bacterial 16S rRNA sequences.
-
-The analysis was performed using R, with the ggplot2 package used to produce graphical representations of the results.
-
-### 8.1 Sequence Length Analysis
-
-The length of each DNA sequence was calculated in base pairs. A bar chart was generated to compare the sequence lengths of the selected bacterial records.
-
-This analysis provides an initial understanding of the differences in sequence coverage among the collected records.
-
-### 8.2 Nucleotide Composition Analysis
-
-The numbers of adenine (A), thymine (T), guanine (G) and cytosine (C) nucleotides were calculated for each sequence.
-
-The nucleotide counts were converted into percentages based on the total number of unambiguous nucleotides (A, T, G and C).
-
-A stacked bar chart was created to compare the nucleotide composition of the selected records.
-
-### 8.3 GC Content Analysis
-
-GC content was calculated using the following formula:
-
-GC Content (%) = ((G + C) / (A + T + G + C)) × 100
-
-The calculated percentages were presented using a comparative bar chart.
-
-Ambiguous nucleotide characters were excluded from the GC content denominator to avoid treating unknown nucleotide identities as G, C, A or T.
-
-### 8.4 Visualization and Export
-
-Three visualizations were generated:
-
-1. 16S rRNA sequence length comparison.
-2. GC content comparison.
-3. Nucleotide composition comparison.
-
-Two summary tables were also generated and exported as CSV files in the results/tables directory.
-
-### 8.5 Interpretation and Limitations
-
-The EDA results provide an overview of sequence length, nucleotide composition and GC content among the selected bacterial records.
-
-The sequence length comparisons must be interpreted carefully because the selected NCBI records have different levels of sequence completeness.
-
-Furthermore, only one representative sequence was selected for each bacterial species. Therefore, the descriptive comparisons cannot establish the full range of genetic variation within each species.
-
-The actual numerical observations and their biological interpretations will be discussed based on the generated tables and figures.
-
-### 8.6 Actual EDA Findings
-
-The exploratory analysis was successfully completed using four selected bacterial 16S rRNA sequences.
-
-The sequence lengths were 1,527 bp for *Lactiplantibacillus plantarum*, 1,489 bp for *Lactobacillus acidophilus*, 1,571 bp for *Limosilactobacillus reuteri* and 1,539 bp for *Streptococcus thermophilus*. The average sequence length was 1,531.5 bp.
-
-The GC content results were 51.41%, 53.73%, 53.96% and 52.76%, respectively. Among the selected records, *L. reuteri* showed the highest GC content, while *L. plantarum* showed the lowest.
-
-The *L. reuteri* record contained five ambiguous nucleotide characters. These were excluded from the GC content calculation.
-
-Overall, the selected sequences showed differences in their nucleotide composition and sequence lengths. However, these observations describe the selected database records and should not be interpreted as population-level differences among bacterial species.
-
-## 9. Main Bioinformatics Analysis
-
-The main sequence analysis was performed using the DECIPHER and ape packages in R.
-
-### 9.1 Multiple Sequence Alignment
-
-Multiple sequence alignment was performed using the AlignSeqs() function from the DECIPHER package.
-
-The four selected 16S rRNA sequences were aligned to identify corresponding nucleotide positions and prepare the data for comparative analysis.
-
-The resulting alignment was saved in FASTA format.
-
-### 9.2 Conserved and Variable Site Analysis
-
-The aligned sequences were examined to identify conserved and variable nucleotide positions.
-
-A conserved position was defined as an alignment column in which all four sequences contained the same unambiguous nucleotide.
-
-A variable position was defined as an alignment column containing at least two different unambiguous nucleotides.
-
-Positions containing gaps or ambiguous nucleotide characters were excluded from these two site categories and reported separately.
-
-### 9.3 Pairwise Sequence Similarity
-
-Pairwise sequence comparisons were performed for all possible combinations of the four bacterial sequences.
-
-Percentage sequence identity was calculated from matching nucleotide positions divided by the total number of comparable positions.
-
-Gaps and ambiguous nucleotide characters were excluded from the comparison.
-
-The results were saved in a CSV file and visualized using a comparative bar chart.
-
-### 9.4 Genetic Distance Analysis
-
-An uncorrected p-distance matrix was calculated using the proportion of different nucleotides among comparable aligned positions.
-
-The distance matrix represents the sequence differences between each pair of selected bacterial records.
-
-### 9.5 Phylogenetic Analysis
-
-A Neighbor-Joining phylogenetic tree was constructed using the calculated genetic distance matrix and the ape package.
-
-The resulting tree represents relationships inferred from the selected 16S rRNA sequence data.
-
-The tree and its Newick representation were exported for further inspection.
-
-### 9.6 Limitations
-
-The analysis is based on four selected sequence records, with one representative sequence per bacterial species.
-
-Some selected records are described by NCBI as partial sequences. Differences in sequence coverage and alignment positions can therefore influence the comparison results.
-
-Only positions containing unambiguous A, T, G and C nucleotides in both sequences were used in pairwise comparisons.
-
-The Neighbor-Joining tree is an exploratory representation based on the selected gene sequences. It should not be interpreted as a definitive evolutionary history of the bacterial species.
-
-## 10. Reproducibility
-
-All data processing and analysis will be performed using R. Source code, dataset information, generated figures and analytical results will be organized within this GitHub repository.
-
-The final project will include the required instructions, package information and report so that the analysis can be reproduced.
+**Bioinformatics ICA3 – 2026**  
+**Student registration number:** 2021/ICT/81  
+**Programming language:** R  
+**Data source:** NCBI GenBank  
+**Project type:** Comparative bacterial sequence analysis
 
 ---
 
-**Project Status:** Initial research problem and project scope defined. Dataset collection and analysis will be completed in subsequent development stages.
+## Abstract
+
+This project compares publicly available 16S ribosomal RNA (16S rRNA) gene sequences from four selected lactic acid bacteria using R. Four records were downloaded from NCBI GenBank and examined through sequence quality checks, nucleotide composition analysis, multiple sequence alignment, pairwise sequence identity calculations, genetic-distance estimation and Neighbor-Joining phylogenetic analysis. The downloaded sequences ranged from 1,489 to 1,571 base pairs, with an average length of 1,531.5 bp. Their GC-content values ranged from 51.41% to 53.96%. The alignment contained 1,449 fully resolved positions, including 1,149 conserved and 300 variable sites. Pairwise identity ranged from 84.02% to 90.43%. The results describe the four selected database records only; they are not estimates of variation across whole bacterial populations.
+
+## 1. Introduction
+
+Bacteria are commonly compared using selected genetic markers because nucleotide sequences provide evidence that can be examined consistently across organisms. The 16S ribosomal RNA gene is widely used in bacterial sequence studies. It contains conserved regions as well as variable positions, allowing researchers to compare sequences and investigate similarities among bacterial records.
+
+Lactic acid bacteria are a group of bacteria associated with lactic acid production and are relevant to food fermentation and other biological settings. This project examines four selected species: *Lactiplantibacillus plantarum*, *Lactobacillus acidophilus*, *Limosilactobacillus reuteri* and *Streptococcus thermophilus*. The work does not investigate antibiotic resistance or clinical treatment. Its focus is the comparison of 16S rRNA nucleotide sequences obtained from a public sequence database.
+
+The practical problem addressed is how to organize, compare and interpret 16S rRNA sequences from different bacterial records using a reproducible bioinformatics workflow. Without a documented workflow, sequence records may be compared without checking record completeness, ambiguous nucleotide characters, sequence alignment or the number of positions that can fairly be compared. These issues can affect sequence-identity values and the interpretation of a phylogenetic tree.
+
+The research question is: **What similarities and differences can be identified among the 16S rRNA sequences of the four selected lactic acid bacteria through nucleotide composition analysis, multiple sequence alignment, pairwise comparison and exploratory phylogenetic analysis?**
+
+The aim is to investigate similarities and differences among the selected records using reproducible sequence-analysis methods in R.
+
+The objectives are to: (1) obtain public 16S rRNA sequence records; (2) import and check the records; (3) describe sequence length, nucleotide composition and GC content; (4) align the sequences and calculate pairwise similarity; and (5) construct and interpret an exploratory Neighbor-Joining tree.
+
+## 2. Data and Dataset Description
+
+The nucleotide sequences were retrieved from the NCBI Nucleotide/GenBank database. The selected accession records are listed below. Accession numbers are included so that the original records can be checked and downloaded again.
+
+| Organism | Strain | GenBank accession | Downloaded length |
+|---|---|---|---:|
+| *Lactiplantibacillus plantarum* | CIP 103151 | [NR_104573.1](https://www.ncbi.nlm.nih.gov/nuccore/NR_104573.1) | 1,527 bp |
+| *Lactobacillus acidophilus* | NBRC 13951 | [AB680529.1](https://www.ncbi.nlm.nih.gov/nuccore/AB680529.1) | 1,489 bp |
+| *Limosilactobacillus reuteri* | DSM 20016 | [X76328.1](https://www.ncbi.nlm.nih.gov/nuccore/X76328.1) | 1,571 bp |
+| *Streptococcus thermophilus* | ATCC 19258 | [AY188354.1](https://www.ncbi.nlm.nih.gov/nuccore/AY188354.1) | 1,539 bp |
+
+NCBI describes NR_104573.1 and AB680529.1 as partial 16S rRNA sequences. AY188354.1 is described as a complete 16S rRNA gene sequence. X76328.1 is identified by NCBI as a 16S rRNA gene record for *L. reuteri* DSM 20016. Record completeness is therefore not identical across all four entries and this is treated as a limitation when interpreting comparisons [1–4].
+
+The dataset contains four sequence records, one representative record for each selected organism. The raw FASTA file is stored in `data/raw/selected_16s_sequences.fasta`, while its associated metadata is stored in `data/raw/sequence_metadata.csv`. The source accession numbers and record information are also documented in the data-import script.
+
+The records are publicly accessible nucleotide database entries. No human participants, personal records or private clinical data were used. The project does not involve laboratory experiments. Users should follow the source database's terms and cite the accession records when reusing the sequence data. The NCBI record pages are the primary references for the sequence identifiers and annotations.
+
+## 3. Methods
+
+### 3.1 Software and packages
+
+All processing and analysis were carried out in R using RStudio. The `rentrez` package was used to retrieve sequence records through NCBI's Entrez utilities. `Biostrings` was used to import, represent and manipulate DNA sequences. `DECIPHER` was used for multiple sequence alignment. `ggplot2` was used to create exploratory figures, and `ape` was used to calculate and display phylogenetic results [5–9]. The installed package and R versions can be checked using `sessionInfo()`.
+
+### 3.2 Data retrieval and import
+
+The script `code/01_data_import.R` defines the four accession numbers and downloads their nucleotide records in FASTA format. It saves the raw sequence file and creates a metadata table containing organism, strain and accession information. Sequence lengths are calculated from the imported records rather than entered manually.
+
+### 3.3 Quality checking and preprocessing
+
+The script `code/02_data_cleaning.R` imports the raw FASTA file and checks that the number of sequences matches the metadata. It matches FASTA headers to accession numbers, standardizes sequence letters to uppercase and checks the nucleotide symbols against the standard IUPAC DNA alphabet. It also counts ambiguous characters and identifies exact duplicate sequences.
+
+Ambiguous nucleotide symbols are not automatically treated as errors. For example, `N` represents an unknown nucleotide, while other IUPAC symbols can represent more than one possible base. The five ambiguous characters recorded in the *L. reuteri* sequence were retained. No sequences were removed during this preprocessing step. The cleaned FASTA file and quality-control summary are saved in `data/processed/`.
+
+### 3.4 Exploratory sequence analysis
+
+The script `code/03_exploratory_analysis.R` calculates sequence length and counts the four unambiguous nucleotides (A, T, G and C). GC content is calculated as:
+
+\[
+GC\ content\ (\%) = \frac{G+C}{A+T+G+C}\times 100
+\]
+
+Ambiguous characters are excluded from the denominator because their nucleotide identity is unknown. Nucleotide percentages are calculated using the total number of unambiguous A, T, G and C characters. The script exports summary CSV files and generates three figures: sequence-length comparison, GC-content comparison and nucleotide composition.
+
+### 3.5 Alignment and conserved-site analysis
+
+The script `code/04_sequence_analysis.R` uses `DECIPHER::AlignSeqs()` to produce a multiple sequence alignment. The aligned sequences are saved as a FASTA file. Alignment columns containing only A, T, G or C in all four sequences are treated as fully resolved. A column is counted as conserved when all four bases are identical. A fully resolved column with at least two different bases is counted as variable. Columns containing gaps or ambiguous characters are reported separately and are not included in the conserved or variable counts.
+
+### 3.6 Pairwise identity and genetic distance
+
+For each of the six possible pairs, positions are considered comparable only when both sequences contain an unambiguous A, T, G or C at the aligned position. Percentage identity is calculated as matching comparable positions divided by all comparable positions, multiplied by 100. The uncorrected p-distance is calculated as one minus the fraction of matching positions. The script records the number of comparable sites, matching sites, percentage identity, p-distance and alignment coverage for each pair.
+
+### 3.7 Phylogenetic analysis
+
+A distance matrix is formed from the pairwise p-distances and used with the Neighbor-Joining function in `ape`. The resulting tree is an exploratory, unrooted representation of the distances among the four selected sequence records. No outgroup or bootstrap support analysis was included, so the tree should not be interpreted as a fully supported or definitive evolutionary history.
+
+## 4. Results
+
+### 4.1 Sequence length and nucleotide composition
+
+The four sequence lengths were 1,527 bp for *L. plantarum*, 1,489 bp for *L. acidophilus*, 1,571 bp for *L. reuteri* and 1,539 bp for *S. thermophilus*. The mean sequence length was 1,531.5 bp. The longest downloaded record was *L. reuteri* and the shortest was *L. acidophilus*.
+
+| Organism | A | T | G | C | Ambiguous bases | GC content |
+|---|---:|---:|---:|---:|---:|---:|
+| *L. plantarum* | 403 | 339 | 451 | 334 | 0 | 51.41% |
+| *L. acidophilus* | 387 | 302 | 460 | 340 | 0 | 53.73% |
+| *L. reuteri* | 388 | 333 | 485 | 360 | 5 | 53.96% |
+| *S. thermophilus* | 390 | 337 | 474 | 338 | 0 | 52.76% |
+
+The GC-content values ranged from 51.41% to 53.96%. *L. reuteri* had the highest value (53.96%), while *L. plantarum* had the lowest (51.41%). The mean of the four reported, rounded record-level GC percentages was approximately 52.96%. The five ambiguous characters in *L. reuteri* were excluded from the GC-content denominator.
+
+![Sequence length comparison](results/figures/01_sequence_length_comparison.png)
+
+![GC content comparison](results/figures/02_gc_content_comparison.png)
+
+![Nucleotide composition](results/figures/03_nucleotide_composition.png)
+
+### 4.2 Multiple sequence alignment
+
+The multiple sequence alignment contained 1,580 columns. Of these, 1,449 were fully resolved canonical nucleotide positions. Within those fully resolved positions, 1,149 were conserved and 300 were variable. The remaining 131 alignment columns contained gaps or ambiguous characters. Therefore, approximately 79.3% of fully resolved positions were conserved and 20.7% were variable.
+
+### 4.3 Pairwise sequence comparison
+
+The pairwise identity values ranged from 84.02% to 90.43%. The highest value was between *L. plantarum* and *L. reuteri*: 1,379 of 1,525 comparable positions matched, giving 90.43% identity and a p-distance of 0.095738. The lowest value was between *L. acidophilus* and *S. thermophilus*: 1,225 of 1,458 comparable positions matched, giving 84.02% identity and a p-distance of 0.159808.
+
+| Pairwise comparison | Matching / comparable sites | Identity | p-distance | Coverage |
+|---|---:|---:|---:|---:|
+| *L. plantarum* – *L. acidophilus* | 1,279 / 1,478 | 86.54% | 0.134641 | 93.54% |
+| *L. plantarum* – *L. reuteri* | 1,379 / 1,525 | 90.43% | 0.095738 | 96.52% |
+| *L. plantarum* – *S. thermophilus* | 1,295 / 1,498 | 86.45% | 0.135514 | 94.81% |
+| *L. acidophilus* – *L. reuteri* | 1,318 / 1,487 | 88.63% | 0.113652 | 94.11% |
+| *L. acidophilus* – *S. thermophilus* | 1,225 / 1,458 | 84.02% | 0.159808 | 92.28% |
+| *L. reuteri* – *S. thermophilus* | 1,319 / 1,526 | 86.44% | 0.135649 | 96.58% |
+
+The arithmetic mean of the six pairwise identity percentages was approximately 87.08%. This is a descriptive average across the six comparisons, not a species-level statistic.
+
+![Pairwise sequence similarity](results/figures/04_pairwise_sequence_similarity.png)
+
+### 4.4 Phylogenetic result
+
+A Neighbor-Joining tree was generated from the p-distance matrix and saved as a PNG image. The displayed unrooted topology places *L. plantarum* with *S. thermophilus* on one side and *L. acidophilus* with *L. reuteri* on the other. This is consistent with a four-point distance check: the sums for the three possible four-taxon splits were 0.270290, 0.255546 and 0.249166, respectively; the smallest sum corresponds to the split (*L. plantarum*, *S. thermophilus*) | (*L. acidophilus*, *L. reuteri*). The final tree should be regenerated using `code/05_finalize_tree.R` so that the Newick file and PNG are both built directly from the committed pairwise-distance CSV.
+
+## 5. Discussion
+
+The exploratory analysis showed that the four downloaded records differ in sequence length and nucleotide composition. The GC-content values were relatively close, with a range of approximately 2.55 percentage points between the lowest and highest records. This describes the composition of the selected sequence records; it should not be generalized to all strains or all members of each bacterial species.
+
+The alignment contained a majority of conserved fully resolved positions, together with 300 variable positions. This indicates that the selected records share many aligned nucleotide positions while also containing sequence differences. The 131 columns with gaps or ambiguous characters demonstrate why alignment coverage and treatment of uncertain bases should be reported alongside identity percentages.
+
+Pairwise comparison found the greatest identity between *L. plantarum* and *L. reuteri* and the lowest identity between *L. acidophilus* and *S. thermophilus*. These rankings apply to the particular accession records and the comparison rule used here. Identity percentages are affected by which alignment positions are comparable; therefore, the number of comparable sites and alignment coverage are reported with each percentage.
+
+The phylogenetic tree provides a compact visualization of the distance matrix, but it should be interpreted cautiously. Only four sequences were included, no bootstrap resampling was performed, and the records are not equally described in terms of completeness. A Neighbor-Joining tree based on one marker is not, by itself, enough to establish a definitive evolutionary history. A larger dataset, consistent sequence-region selection, additional markers or whole-genome comparisons, and branch-support analysis would be required for stronger evolutionary conclusions.
+
+A further limitation is that this project uses one record per species. The four records are not biological replicates, so inferential tests comparing within-species variation cannot be justified. The analysis is descriptive and computational. It also does not test bacterial phenotype, pathogenicity, antibiotic susceptibility or clinical relevance. The project should not be interpreted as an antimicrobial-resistance study.
+
+## 6. Conclusion and Future Work
+
+This project established a reproducible R workflow for retrieving, checking, describing, aligning and comparing four public 16S rRNA records from selected lactic acid bacteria. The sequences ranged from 1,489 to 1,571 bp, GC content ranged from 51.41% to 53.96%, and the alignment contained 1,149 conserved and 300 variable fully resolved positions. Pairwise identity ranged from 84.02% to 90.43%.
+
+The findings answer the research question at the level of the four selected database records. They show measurable sequence similarity as well as variation, but they do not support population-wide or definitive evolutionary conclusions. Future work could include more strains per species, carefully matched full-length 16S rRNA records, additional genetic markers, bootstrap support for phylogenetic branches and an independent sequence-alignment validation step.
+
+## 7. Reproducibility and How to Run
+
+Clone the public GitHub repository and open the `.Rproj` file in RStudio. Use the repository root as the working directory. Install the required packages once:
+
+```r
+install.packages(c("rentrez", "ggplot2", "ape"))
+install.packages("BiocManager")
+BiocManager::install(c("Biostrings", "DECIPHER"))
+```
+
+Run the scripts in this order:
+
+1. `code/01_data_import.R` – retrieves the accession records from NCBI and writes the raw FASTA and metadata files.
+2. `code/02_data_cleaning.R` – validates and standardizes the downloaded sequences and writes the processed files.
+3. `code/03_exploratory_analysis.R` – calculates sequence lengths, nucleotide composition and GC content, and creates the EDA figures and tables.
+4. `code/04_sequence_analysis.R` – aligns the sequences, counts conserved and variable sites, calculates pairwise identity and p-distances, and creates the initial tree outputs.
+5. `code/05_finalize_tree.R` – rebuilds the final Neighbor-Joining tree directly from the saved pairwise p-distance table and writes a four-point diagnostic.
+
+The raw dataset is included in `data/raw/` for inspection, while the import script allows it to be retrieved again from NCBI. Because remote database records can be updated, users should record the retrieval date and compare the downloaded sequences with the committed FASTA file when reproducing the work. Run `sessionInfo()` in R to record the local R and package versions.
+
+## References
+
+1. NCBI. *Lactiplantibacillus plantarum* strain CIP 103151 16S ribosomal RNA, partial sequence. GenBank accession **NR_104573.1**. https://www.ncbi.nlm.nih.gov/nuccore/NR_104573.1
+2. NCBI. *Lactobacillus acidophilus* gene for 16S rRNA, partial sequence, strain NBRC 13951. GenBank accession **AB680529.1**. https://www.ncbi.nlm.nih.gov/nuccore/AB680529.1
+3. NCBI. *L. reuteri* DSM 20016 16S rRNA gene record. GenBank accession **X76328.1**. https://www.ncbi.nlm.nih.gov/nuccore/X76328.1
+4. NCBI. *Streptococcus thermophilus* strain ATCC 19258 16S ribosomal RNA gene, complete sequence. GenBank accession **AY188354.1**. https://www.ncbi.nlm.nih.gov/nuccore/AY188354.1
+5. Winter, D. (2025). *rentrez: 'Entrez' in R*. R package version 1.2.4. https://CRAN.R-project.org/package=rentrez
+6. Pagès, H. et al. *Biostrings: Efficient manipulation of biological strings*. Bioconductor. https://bioconductor.org/packages/Biostrings/
+7. Bioconductor. *DECIPHER: Tools for curating, analyzing, and manipulating biological sequences*. Package documentation. https://bioconductor.org/packages/DECIPHER/
+8. Paradis, E., Claude, J., & Strimmer, K. (2004). APE: Analyses of Phylogenetics and Evolution in R language. *Bioinformatics*, 20(2), 289–290. https://doi.org/10.1093/bioinformatics/btg412
+9. Wickham, H. (2016). *ggplot2: Elegant Graphics for Data Analysis*. Springer. https://ggplot2.tidyverse.org
+10. R Core Team. (2026). *R: A Language and Environment for Statistical Computing*. R Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/

@@ -1,0 +1,7 @@
+"organism_1","organism_2","comparable_sites","matching_sites","percentage_identity","p_distance","alignment_coverage_percent"
+"Lactiplantibacillus plantarum","Lactobacillus acidophilus",1478,1279,86.5359,0.134641,93.54
+"Lactiplantibacillus plantarum","Limosilactobacillus reuteri",1525,1379,90.4262,0.095738,96.52
+"Lactiplantibacillus plantarum","Streptococcus thermophilus",1498,1295,86.4486,0.135514,94.81
+"Lactobacillus acidophilus","Limosilactobacillus reuteri",1487,1318,88.6348,0.113652,94.11
+"Lactobacillus acidophilus","Streptococcus thermophilus",1458,1225,84.0192,0.159808,92.28
+"Limosilactobacillus reuteri","Streptococcus thermophilus",1526,1319,86.4351,0.135649,96.58
